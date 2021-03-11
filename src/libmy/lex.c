@@ -236,5 +236,5 @@ EWRAM_CODE bool LexIsTag(char* str)
 //---------------------------------------------------------------------------
 EWRAM_CODE bool LexIsEnd(void)
 {
-	return (Lex.pCur == '\0') ? TRUE : FALSE;
+	return (Lex.pCur == 0) ? TRUE : FALSE;
 }

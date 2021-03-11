@@ -3,7 +3,7 @@ MAKEFLAGS	+=--no-print-directory
 SHELL	= sh
 NAME	= test
 GAMECODE= TEST
-PREFIX	= arm-eabi-
+PREFIX	= arm-none-eabi-
 
 AS		= $(PREFIX)as
 CC 		= $(PREFIX)gcc
