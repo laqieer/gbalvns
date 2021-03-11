@@ -1,0 +1,184 @@
+# ƒGƒ“ƒfƒBƒ“ƒO
+
+
+# ---------------------------------------------------------------------------
+blackin 0
+image "MAX_S02.img"
+blackout 5
+
+print "‹r–{" 3
+print "‚‹´@—´–ç" 5
+wait 200
+
+blackin 5
+printcls
+
+
+# -----------------------------------
+image "MAX_S10.img"
+blackout 5
+
+print "ƒLƒƒƒ‰ƒNƒ^[Œ´ˆÄ" 3
+print "‚•F@’BÆ" 5
+wait 200
+
+blackin 5
+printcls
+
+
+# -----------------------------------
+image "MAX_S11.img"
+blackout 5
+
+print "Œ´‰æ" 3
+print "…–³Œ@“O" 5
+wait 200
+
+blackin 5
+printcls
+
+
+# -----------------------------------
+image "MAX_S12.img"
+blackout 5
+
+print "ƒvƒƒOƒ‰ƒ€" 3
+print "‚g‚`‚i‚h‚l‚d@‚m‚h‚m‚n‚l‚`‚d" 5
+wait 200
+
+blackin 5
+printcls
+
+
+# -----------------------------------
+image "MAX_S13.img"
+blackout 5
+
+print "ƒrƒWƒ…ƒAƒ‹ƒOƒ‰ƒtƒBƒbƒN" 2
+print "’¹–ì@³M" 4
+print "‚g‚`‚l‚l‚d‚q" 5
+print "e•ƒ–û" 6
+print "¶”g–²" 7
+print "‚c‚n‚y‚`" 8
+wait 200
+
+blackin 5
+printcls
+
+
+# -----------------------------------
+image "MAX_S15.img"
+blackout 5
+
+print "ƒLƒƒƒ‰ƒNƒ^[ƒOƒ‰ƒtƒBƒbƒN" 3
+print "‚g‚`‚l‚l‚d‚q" 5
+print "’¹–ì@³M" 6
+wait 200
+
+blackin 5
+printcls
+
+
+# -----------------------------------
+image "MAX_S20.img"
+blackout 5
+
+print "”wŒiƒOƒ‰ƒtƒBƒbƒN" 3
+print "’¹–ì@³M" 5
+print "e•ƒ–û" 6
+print "¶”g–²" 7
+wait 200
+
+blackin 5
+printcls
+
+
+# -----------------------------------
+image "MAX_S22.img"
+blackout 5
+
+print "ƒIƒŠƒWƒiƒ‹ƒtƒHƒ“ƒg" 3
+print "‚g‚`‚l‚l‚d‚q" 5
+print "”š—ô‰ŒX•“ª‹Ğ" 6
+print "…–³Œ@“O" 7
+wait 200
+
+blackin 5
+printcls
+
+
+# -----------------------------------
+image "MAX_S24.img"
+blackout 5
+
+print "ƒV[ƒ“\¬" 3
+print "‚n‚q‚h‚a‚`‚r‚r" 5
+print "—tŒ@—Dˆê" 6
+print "…–³Œ@“O" 7
+print "‰†‹@" 8
+wait 200
+
+blackin 5
+printcls
+
+
+# -----------------------------------
+image "MAX_S26.img"
+blackout 5
+
+print "‰¹Šy" 3
+print "ÜŒË@L¡" 5
+print "‰ºì@’¼Æ" 6
+print "Îì@^–ç" 7
+wait 200
+
+blackin 5
+printcls
+
+
+# -----------------------------------
+image "MAX_S27.img"
+blackout 5
+
+print "‚s‚d‚r‚s@‚o‚k‚`‚x" 3
+print "‚`‚k‚k@‚k‚d‚`‚e@‚r‚s‚`‚e‚e" 5
+wait 200
+
+blackin 5
+printcls
+
+
+# -----------------------------------
+image "MAX_S31.img"
+blackout 5
+
+print "‚r‚o‚d‚b‚h‚`‚k@‚s‚g‚`‚m‚w" 3
+print "‚j‚d‚m@‚j‚d‚m" 5
+wait 200
+
+blackin 5
+printcls
+
+
+# -----------------------------------
+image "MAX_S34.img"
+blackout 5
+
+print "‚`‚m‚c@‚x‚n‚t" 4
+wait 200
+
+blackin 5
+printcls
+
+
+# -----------------------------------
+image "MAX_S02.img"
+blackout 5
+
+print "Šé‰æEŠJ”­" 3
+print "‚P‚X‚X‚U@‚k‚d‚`‚e" 5
+wait 200
+
+blackin 5
+printcls
+end

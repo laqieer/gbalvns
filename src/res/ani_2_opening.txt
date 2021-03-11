@@ -1,0 +1,163 @@
+# ƒI[ƒvƒjƒ“ƒO
+
+
+bgm 16 1
+
+# ---------------------------------------------------------------------------
+# —Ü‚Ì´@‚P‰ñ–Ú
+# OP_S00`16.img ‚ğ•\¦‚µ‚Ü‚·
+setval 0
+setstr "OP_S%02d.img"
+setpos
+
+image3
+update
+wait 2
+
+inc
+jb 16
+
+blackin 5
+
+
+# ---------------------------------------------------------------------------
+# •ä
+image "OP_V0.img"
+blackout 5
+wait 40
+blackin 5
+
+
+# ---------------------------------------------------------------------------
+# —Ü‚Ì´@‚Q‰ñ–Ú
+# OP_S00`16.img ‚ğ•\¦‚µ‚Ü‚·
+setval 0
+setstr "OP_S%02d.img"
+setpos
+
+image3
+update
+wait 2
+
+inc
+jb 16
+
+# Œãˆ—
+blackin 0
+
+
+# ---------------------------------------------------------------------------
+# ¹D
+image "OP_V1.img"
+blackout 5
+wait 40
+blackin 5
+
+
+# ---------------------------------------------------------------------------
+# —Ü‚Ì´@‚R‰ñ–Ú
+# OP_S00`16.img ‚ğ•\¦‚µ‚Ü‚·
+setval 0
+setstr "OP_S%02d.img"
+setpos
+
+image3
+update
+wait 2
+
+inc
+jb 16
+
+# Œãˆ—
+blackin 5
+
+
+# ---------------------------------------------------------------------------
+# —Ú—q
+image "OP_L0.img"
+blackout 5
+wait 20
+
+
+# -----------------------------------
+# ‰¡Šç‚ä‚ç‚ä‚ç
+setval 0
+setpos
+
+image "OP_L0.img"
+wait 10
+update
+
+image "OP_L1.img"
+wait 10
+update
+
+image "OP_L2.img"
+wait 10
+update
+
+image "OP_L1.img"
+wait 10
+update
+
+inc
+jb 6
+
+
+# -----------------------------------
+# ‚±‚Á‚¿Œü‚­
+image "OP_L0.img"
+wait 10
+update
+
+image "OP_L3.img"
+wait 10
+update
+
+image "OP_L4.img"
+wait 10
+update
+
+image "OP_L5.img"
+wait 10
+update
+
+
+# -----------------------------------
+# ‚±‚Á‚¿Œü‚¢‚Ä‚ä‚ç‚ä‚ç
+setval 0
+setpos
+
+image "OP_L6.img"
+wait 10
+update
+
+image "OP_L7.img"
+wait 10
+update
+
+image "OP_L8.img"
+wait 10
+update
+
+image "OP_L7.img"
+wait 10
+update
+
+inc
+jb 3
+
+blackin 5
+
+
+# ---------------------------------------------------------------------------
+# ƒ^ƒCƒgƒ‹
+image "TITLE0.img"
+blackout 5
+wait 100
+
+# h´h•\¦
+image2
+update
+waitkey
+end
