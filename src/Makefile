@@ -36,7 +36,7 @@ VPATH =  $(dir $(CFILES) $(SFILES) $(AFILES))
 #=============================================================================
 
 ASFLAGS	= -mthumb-interwork --fatal-warnings
-CFLAGS	= -mthumb-interwork -nostdlib -fverbose-asm -fpeephole -mtune=arm7tdmi -mcpu=arm7tdmi $(foreach incdir,$(INCDIR),-I$(incdir) ) -Wall -W -Wshadow -Wno-unused-parameter -Wno-strict-aliasing
+CFLAGS	= -mthumb-interwork -fverbose-asm -fpeephole -mtune=arm7tdmi -mcpu=arm7tdmi $(foreach incdir,$(INCDIR),-I$(incdir) ) -Wall -W -Wshadow -Wno-unused-parameter -Wno-strict-aliasing
 
 OBJDIR  = obj
 CFLAGS_THUMB= $(CFLAGS) -mthumb -O2
@@ -50,7 +50,7 @@ NMFILE      = $(NAME).nm
 TARGET_ELF	= $(NAME).elf
 TARGET_BIN	= $(NAME).gba
 
-LDFLAGS		= -Map $(MAPFILE) -Wall -lstdc++ -mthumb-interwork -specs=gba.specs -nostartfiles
+LDFLAGS		= -Map $(MAPFILE) -Wall -lstdc++ -mthumb-interwork -specs=gba.specs
 
 #=============================================================================
 
