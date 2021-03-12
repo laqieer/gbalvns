@@ -1,8 +1,8 @@
 MAKEFLAGS	+=--no-print-directory
 
 SHELL	= sh
-NAME	= test
-GAMECODE= TEST
+NAME	= core
+GAMECODE= LVNS
 PREFIX	= arm-none-eabi-
 
 AS		= $(PREFIX)as
