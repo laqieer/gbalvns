@@ -3,7 +3,7 @@
 #define	_gba_append_h_
 
 
-#define DEBUG					1
+#define DEBUG					0
 
 
 
