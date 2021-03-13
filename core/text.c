@@ -694,17 +694,8 @@ EWRAM_CODE bool TextIsEnd(void)
 //---------------------------------------------------------------------------
 EWRAM_CODE void TextDebug(u16 code)
 {
-	u16 sjis = TextGetSjisCode(code);
-	char buf[16];
-
-	buf[0] = (sjis & 0x00ff);
-	buf[1] = (sjis & 0xff00) >> 8;
-	buf[2] = '\0';
-
-	TRACEOUT("%s", buf);
 }
 //---------------------------------------------------------------------------
 EWRAM_CODE void TextDebugLf(void)
 {
-	TRACEOUT("\n");
 }

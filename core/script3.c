@@ -6,7 +6,7 @@
 
 
 // script3.c
-// uŽ´vƒƒbƒZ[ƒWƒp[ƒT–{‘Ì
+// ã€Œé›«ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ãƒ¼ã‚µæœ¬ä½“
 
 //---------------------------------------------------------------------------
 const ST_SCRIPT_MSG_TABLE ScriptMsgTable[SCRIPT_MAX_MSG_CNT] = {
@@ -63,7 +63,7 @@ EWRAM_CODE void ScriptExecMsg(void)
 			if(op == ScriptMsgTable[i].op)
 			{
 				TRACEOUT("--------------------------------\n");
-				TRACEOUT("[ƒƒbƒZ[ƒW: %0x02x]\n", (u32)op);
+				TRACEOUT("[ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸: %0x02x]\n", (u32)op);
 
 				ScriptMsgTable[i].pFunc();
 				break;
@@ -77,7 +77,7 @@ EWRAM_CODE void ScriptExecMsg(void)
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecMsgEnd(void)
 {
-	TRACEOUT("[ƒƒbƒZ[ƒWI—¹]\n");
+	TRACEOUT("[ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸çµ‚äº†]\n");
 
 	ScriptSetAct(SCRIPT_ACT_EVENT);
 	Script.isLoop = FALSE;
@@ -85,15 +85,15 @@ EWRAM_CODE void ScriptExecMsgEnd(void)
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecMsgLf(void)
 {
-	TRACEOUT("[‰üs]\n");
+	TRACEOUT("[æ”¹è¡Œ]\n");
 
-	// ‰üs‚ÍPC98‚âWindowsã‚Ì‰æ–ÊƒTƒCƒY‚É‡‚í‚¹‚Ä”z’u‚µ‚Ä‚ ‚éˆ×A
-	// GBA‚Å‚Í–³Ž‹‚µ‚Ü‚·
+	// æ”¹è¡Œã¯PC98ã‚„Windowsä¸Šã®ç”»é¢ã‚µã‚¤ã‚ºã«åˆã‚ã›ã¦é…ç½®ã—ã¦ã‚ã‚‹ç‚ºã€
+	// GBAã§ã¯ç„¡è¦–ã—ã¾ã™
 }
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecMsgWaitPage(void)
 {
-	TRACEOUT("[ƒy[ƒWXV‘Ò‚¿]\n");
+	TRACEOUT("[ãƒšãƒ¼ã‚¸æ›´æ–°å¾…ã¡]\n");
 
 	ImgSetEffectUpdate(IMG_EFFECT_TEXT);
 	ScriptSetAct(SCRIPT_ACT_WAIT_PAGE);
@@ -103,7 +103,7 @@ EWRAM_CODE void ScriptExecMsgWaitPage(void)
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecMsgWaitKey(void)
 {
-	TRACEOUT("[ƒL[“ü—Í‘Ò‚¿]\n");
+	TRACEOUT("[ã‚­ãƒ¼å…¥åŠ›å¾…ã¡]\n");
 
 	ImgSetEffectUpdate(IMG_EFFECT_TEXT);
 	ScriptSetAct(SCRIPT_ACT_WAIT_KEY);
@@ -113,7 +113,7 @@ EWRAM_CODE void ScriptExecMsgWaitKey(void)
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecMsgSkip1(void)
 {
-	TRACEOUT("[“ä1]\n");
+	TRACEOUT("[è¬Ž1]\n");
 }
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecMsgSetChr(void)
@@ -123,7 +123,7 @@ EWRAM_CODE void ScriptExecMsgSetChr(void)
 	u8 pos   = ScriptGetMapChrPos(c[0]);
 	u8 chrNo = ScriptGetMapHexToDig2(c[1], c[2]);
 
-	TRACEOUT("[ƒLƒƒƒ‰ƒNƒ^ŒðŠ·: %d, MAX_C%02X]\n", pos, chrNo);
+	TRACEOUT("[ã‚­ãƒ£ãƒ©ã‚¯ã‚¿äº¤æ›: %d, MAX_C%02X]\n", pos, chrNo);
 
 	ImgSetChr2(chrNo, pos);
 	ImgSetEffectUpdate(IMG_EFFECT_FADE_MASK);
@@ -141,7 +141,7 @@ EWRAM_CODE void ScriptExecMsgSetBg(void)
 	u8 num2 = ScriptGetMapEffect(c[2], c[3]);
 	u8 num3 = ScriptGetMapEffect(c[4], c[5]);
 
-	TRACEOUT("[”wŒiƒ[ƒh: %d, %d, %d]\n", num1, num2, num3);
+	TRACEOUT("[èƒŒæ™¯ãƒ­ãƒ¼ãƒ‰: %d, %d, %d]\n", num1, num2, num3);
 
 	ImgSetEffectClear(num2);
 	ImgSetBg2(num1);
@@ -162,7 +162,7 @@ EWRAM_CODE void ScriptExecMsgSetBgAndChr(void)
 	u8 num4 = ScriptGetMapEffect(c[5], c[6]);
 	u8 num5 = ScriptGetMapEffect(c[7], c[8]);
 
-	TRACEOUT("[”wŒi•t‚«ƒLƒƒƒ‰•\\Ž¦: %d, MAX_C%02X, MAX_S%02d, %d, %d]\n", num1, num2, num3, num4, num5);
+	TRACEOUT("[èƒŒæ™¯ä»˜ãã‚­ãƒ£ãƒ©è¡¨ç¤º: %d, MAX_C%02X, MAX_S%02d, %d, %d]\n", num1, num2, num3, num4, num5);
 
 	ImgSetEffectClear(num4);
 	ImgSetBg2(num3);
@@ -181,7 +181,7 @@ EWRAM_CODE void ScriptExecMsgSetChrCls(void)
 	u8 pos = ScriptGetMapChrPos(c[0]);
 	u8 no  = ScriptGetMapHexToDig2(c[1], c[2]);
 
-	TRACEOUT("[ƒLƒƒƒ‰‘SÁ‹ŽŒã•\\Ž¦: %d, MAX_C%02X]\n", pos, no);
+	TRACEOUT("[ã‚­ãƒ£ãƒ©å…¨æ¶ˆåŽ»å¾Œè¡¨ç¤º: %d, MAX_C%02X]\n", pos, no);
 
 	ImgSetChrClear(IMG_CHR_TYPE_ALL);
 	ImgSetChr2(no, pos);
@@ -203,7 +203,7 @@ EWRAM_CODE void ScriptExecMsgSetChrAll(void)
 	u8 pos3 = ScriptGetMapChrPos(c[6]);
 	u8 num3 = ScriptGetMapHexToDig2(c[7], c[8]);
 
-	TRACEOUT("[ƒLƒƒƒ‰3l•\\Ž¦: %d, %x, %d, %x, %d, %x]\n", pos1, num1, pos2, num2, pos3, num3);
+	TRACEOUT("[ã‚­ãƒ£ãƒ©3äººè¡¨ç¤º: %d, %x, %d, %x, %d, %x]\n", pos1, num1, pos2, num2, pos3, num3);
 
 	ImgSetChr2(num1, pos1);
 	ImgSetChr2(num2, pos2);
@@ -216,7 +216,7 @@ EWRAM_CODE void ScriptExecMsgSetChrAll(void)
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecMsgSetEffect(void)
 {
-	TRACEOUT("[‰æ–Ê‚ð—h‚ç‚·]\n");
+	TRACEOUT("[ç”»é¢ã‚’æºã‚‰ã™]\n");
 	ImgSetEffectUpdate(IMG_EFFECT_SHAKE);
 
 	Script.isLoop = FALSE;
@@ -230,7 +230,7 @@ EWRAM_CODE void ScriptExecMsgSetBg2(void)
 	u8 num2 = ScriptGetMapEffect(c[2], c[3]);
 	u8 num3 = ScriptGetMapEffect(c[4], c[5]);
 
-	TRACEOUT("[”wŒiƒ[ƒh(2)?: MAX_S%02d.img, %d, %d]\n", num1, num2, num3);
+	TRACEOUT("[èƒŒæ™¯ãƒ­ãƒ¼ãƒ‰(2)?: MAX_S%02d.img, %d, %d]\n", num1, num2, num3);
 
 	ImgSetEffectClear(num2);
 	ImgSetBg2(num1);
@@ -243,7 +243,7 @@ EWRAM_CODE void ScriptExecMsgSetBg2(void)
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecMsgSetFlash(void)
 {
-	TRACEOUT("[ƒtƒ‰ƒbƒVƒ…]\n");
+	TRACEOUT("[ãƒ•ãƒ©ãƒƒã‚·ãƒ¥]\n");
 
 	ImgSetEffectClear(IMG_EFFECT_FADE_WHITE);
 	ImgSetEffectUpdate(IMG_EFFECT_FADE_WHITE);
@@ -259,7 +259,7 @@ EWRAM_CODE void ScriptExecMsgSetVisual(void)
 	u8 num2 = ScriptGetMapEffect(c[2], c[3]);
 	u8 num3 = ScriptGetMapEffect(c[4], c[5]);
 
-	TRACEOUT("[ƒrƒWƒ…ƒAƒ‹: VIS%02d.img, %d, %d]\n", num1, num2, num3);
+	TRACEOUT("[ãƒ“ã‚¸ãƒ¥ã‚¢ãƒ«: VIS%02d.img, %d, %d]\n", num1, num2, num3);
 
 	ImgSetEffectClear(num2);
 	ImgSetBgV(num1);
@@ -278,7 +278,7 @@ EWRAM_CODE void ScriptExecMsgSetHscene(void)
 	u8 num2 = ScriptGetMapEffect(c[2], c[3]);
 	u8 num3 = ScriptGetMapEffect(c[4], c[5]);
 
-	TRACEOUT("[HƒV[ƒ“(HVS02d.img, %d, %d)]\n", num1, num2, num3);
+	TRACEOUT("[Hã‚·ãƒ¼ãƒ³(HVS02d.img, %d, %d)]\n", num1, num2, num3);
 
 	ImgSetEffectClear(num2);
 	ImgSetBgH(num1);
@@ -295,7 +295,7 @@ EWRAM_CODE void ScriptExecMsgBgm(void)
 
 	if(c1 == 'f')
 	{
-		TRACEOUT("[BGM ƒtƒF[ƒhƒAƒEƒg]\n");
+		TRACEOUT("[BGM ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆ]\n");
 		BgmStopOut();
 	}
 	else if (c1 == 'n')
@@ -305,7 +305,7 @@ EWRAM_CODE void ScriptExecMsgBgm(void)
 		u8 num   = ScriptGetMapDig(c2, c3);
 		u8 bgmNo = ScriptGetMapBgm(num);
 
-		TRACEOUT("[BGM Ä¶(next): tr_%03d.8ad\n", bgmNo);
+		TRACEOUT("[BGM å†ç”Ÿ(next): tr_%03d.8ad\n", bgmNo);
 		BgmSetNext(bgmNo, TRUE);
 	}
 	else if (c1 == 'w')
@@ -319,12 +319,12 @@ EWRAM_CODE void ScriptExecMsgBgm(void)
 		u8 num   = ScriptGetMapDig(c1, c2);
 		u8 bgmNo = ScriptGetMapBgm(num);
 
-		TRACEOUT("[BGM Ä¶2: tr_%03d.8ad\n", bgmNo);
+		TRACEOUT("[BGM å†ç”Ÿ2: tr_%03d.8ad\n", bgmNo);
 		BgmPlay(bgmNo, TRUE);
 	}
 	else if (c1 == 's')
 	{
-		TRACEOUT("[BGM ’âŽ~]\n");
+		TRACEOUT("[BGM åœæ­¢]\n");
 		BgmStop();
 	}
 	else
@@ -335,7 +335,7 @@ EWRAM_CODE void ScriptExecMsgBgm(void)
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecMsgPcm(void)
 {
-	// PCMŠÖ˜A‚Í–¢‘Î‰ž‚Å‚·
+	// PCMé–¢é€£ã¯æœªå¯¾å¿œã§ã™
 	u8 c1 = *Script.pMsgCur++;
 
 	if(c1 == 'l')
@@ -344,7 +344,7 @@ EWRAM_CODE void ScriptExecMsgPcm(void)
 		u8 c3  = *Script.pMsgCur++;
 		u8 num = ScriptGetMapDig(c2, c3);
 
-		TRACEOUT("[PCMƒ[ƒh(%d)]\n", num);
+		TRACEOUT("[PCMãƒ­ãƒ¼ãƒ‰(%d)]\n", num);
 	}
 	else if (c1 >= '0' && c1 <= '9')
 	{
@@ -352,11 +352,11 @@ EWRAM_CODE void ScriptExecMsgPcm(void)
 		u8 c3 = *Script.pMsgCur++;
 		u8 c4 = *Script.pMsgCur++;
 
-		TRACEOUT("[PCMÄ¶Žw’è(%c%c, %c%c)]\n", c1, c2, c3, c4);
+		TRACEOUT("[PCMå†ç”ŸæŒ‡å®š(%c%c, %c%c)]\n", c1, c2, c3, c4);
 	}
 	else if(c1 == 'f')
 	{
-		TRACEOUT("[PCMƒtƒF[ƒhƒAƒEƒg?]\n");
+		TRACEOUT("[PCMãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆ?]\n");
 	}
 	else if(c1 == 'w')
 	{
@@ -364,7 +364,7 @@ EWRAM_CODE void ScriptExecMsgPcm(void)
 	}
 	else if(c1 == 's')
 	{
-		TRACEOUT("[PCM’âŽ~]\n");
+		TRACEOUT("[PCMåœæ­¢]\n");
 	}
 	else
 	{
@@ -376,14 +376,14 @@ EWRAM_CODE void ScriptExecMsgOffset(void)
 {
 	u8 chr = *Script.pMsgCur++;
 
-	TRACEOUT("[•\\Ž¦ƒIƒtƒZƒbƒgŽw’è: %x]\n", chr);
+	TRACEOUT("[è¡¨ç¤ºã‚ªãƒ•ã‚»ãƒƒãƒˆæŒ‡å®š: %x]\n", chr);
 }
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecMsgSpeed(void)
 {
 	u8 chr = *Script.pMsgCur++;
 
-	TRACEOUT("[•\\Ž¦‘¬“xŽw’è?: %x]\n", chr);
+	TRACEOUT("[è¡¨ç¤ºé€Ÿåº¦æŒ‡å®š?: %x]\n", chr);
 }
 //---------------------------------------------------------------------------
 IWRAM_CODE void ScriptExecMsgText(void)

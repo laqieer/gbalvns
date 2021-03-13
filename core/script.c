@@ -24,7 +24,7 @@ EWRAM_CODE void ScriptInitFlag(void)
 {
 	_Memset(&Script.flag, 0x00, sizeof(Script.flag));
 
-	// ƒZ[ƒuƒf[ƒ^‚ª‚ ‚éê‡Aˆê•”‚Ìƒtƒ‰ƒOiScript.flagj‚ğã‘‚«‚µ‚Ü‚·
+	// ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚‹å ´åˆã€ä¸€éƒ¨ã®ãƒ•ãƒ©ã‚°ï¼ˆScript.flagï¼‰ã‚’ä¸Šæ›¸ãã—ã¾ã™
 	SioriLoadFlag();
 }
 //---------------------------------------------------------------------------
@@ -158,7 +158,7 @@ EWRAM_CODE void ScriptExecSelect(void)
 	switch(Script.actStep)
 	{
 	case 0:
-		// –â‚¢‚ÆA€–Ú”‚ğæ“¾‚µ‚Ü‚·
+		// å•ã„ã¨ã€é …ç›®æ•°ã‚’å–å¾—ã—ã¾ã™
 		Script.selMsg = *Script.pEventCur++;
 		Script.selCnt = *Script.pEventCur++;
 		Script.selNum = -1;
@@ -169,12 +169,12 @@ EWRAM_CODE void ScriptExecSelect(void)
 			Script.selJump[i] = *Script.pEventCur++;
 		}
 
-		TRACEOUT("[‘I‘ğˆ‚Ì”] %d\n", Script.selCnt);
+		TRACEOUT("[é¸æŠè‚¢ã®æ•°] %d\n", Script.selCnt);
 		Script.actStep++;
 		break;
 
 	case 1:
-		// –â‚¢‚ğ•\¦‚µ‚Ü‚·
+		// å•ã„ã‚’è¡¨ç¤ºã—ã¾ã™
 		ScriptExecSelectSub(Script.selMsg, FALSE, FALSE);
 		ImgSetEffectUpdate(IMG_EFFECT_TEXT);
 
@@ -182,7 +182,7 @@ EWRAM_CODE void ScriptExecSelect(void)
 		break;
 
 	case 2:
-		// “ü—Í‘Ò‚¿
+		// å…¥åŠ›å¾…ã¡
 		if(ScriptCalcKey() == TRUE)
 		{
 			TextSetNewPage();
@@ -191,7 +191,7 @@ EWRAM_CODE void ScriptExecSelect(void)
 		break;
 
 	case 3:
-		// €–Ú‚ğ•\¦‚ğ‚µ‚Ü‚·
+		// é …ç›®ã‚’è¡¨ç¤ºã‚’ã—ã¾ã™
 		TextSetClearXY();
 
 		for(i=0; i<Script.selCnt; i++)
@@ -213,7 +213,7 @@ EWRAM_CODE void ScriptExecSelect(void)
 		break;
 
 	case 4:
-		// ‘I‘ğ’†
+		// é¸æŠä¸­
 		if((trg & KEY_A) && Script.selNum != -1)
 		{
 			Script.actStep++;
@@ -241,7 +241,7 @@ EWRAM_CODE void ScriptExecSelect(void)
 		break;
 
 	case 5:
-		// ‘I‘ğI—¹
+		// é¸æŠçµ‚äº†
 		TextSetClearXY();
 		ScriptExecSelectSub(Script.selItem[Script.selNum], TRUE, TRUE);
 		TextSetClear();
@@ -263,7 +263,7 @@ EWRAM_CODE void ScriptExecSelectSub(u8 msgNo, bool isSel, bool isBuf)
 
 	for(;;)
 	{
-		// TODO ƒXƒNƒŠƒvƒg‚Ì‘®‚ğ–³‹‚µ‚Ä‚¢‚Ü‚·B–{“–‚Í‚æ‚­‚È‚¢
+		// TODO ã‚¹ã‚¯ãƒªãƒ—ãƒˆã®æ›¸å¼ã‚’ç„¡è¦–ã—ã¦ã„ã¾ã™ã€‚æœ¬å½“ã¯ã‚ˆããªã„
 
 		if(*pMsgCur & 0x80)
 		{
@@ -351,7 +351,7 @@ EWRAM_CODE void ScriptSetScn(u16 scnNo)
 	Script.pEventCur = NULL;
 	Script.pMsgCur   = NULL;
 
-	TRACEOUT("[ƒXƒNƒŠƒvƒgƒ[ƒh: no.%d %x %x]\n", scnNo, Script.pEvent, Script.pMsg);
+	TRACEOUT("[ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ­ãƒ¼ãƒ‰: no.%d %x %x]\n", scnNo, Script.pEvent, Script.pMsg);
 }
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptSetEvent(u16 eventNo)
@@ -361,7 +361,7 @@ EWRAM_CODE void ScriptSetEvent(u16 eventNo)
 	Script.pEventCur = Script.pEvent + *((u16*)Script.pEvent + (eventNo + 1));
 	ScriptSetAct(SCRIPT_ACT_EVENT);
 
-	TRACEOUT("[ƒCƒxƒ“ƒgƒ[ƒh: no.%d %x]\n", eventNo, Script.pEventCur);
+	TRACEOUT("[ã‚¤ãƒ™ãƒ³ãƒˆãƒ­ãƒ¼ãƒ‰: no.%d %x]\n", eventNo, Script.pEventCur);
 }
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptSetMsg(u16 msgNo)
@@ -371,7 +371,7 @@ EWRAM_CODE void ScriptSetMsg(u16 msgNo)
 	Script.pMsgCur = Script.pMsg + *((u16*)Script.pMsg + (msgNo + 1));
 	ScriptSetAct(SCRIPT_ACT_MSG);
 
-	TRACEOUT("[ƒƒbƒZ[ƒWƒ[ƒh: no.%d %x]\n", msgNo, Script.pMsg);
+	TRACEOUT("[ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ­ãƒ¼ãƒ‰: no.%d %x]\n", msgNo, Script.pMsg);
 }
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptSetFlag(u8 no, u8 val)
@@ -392,29 +392,29 @@ EWRAM_CODE u8 ScriptGetFlag(u8 no)
 	return Script.flag[no];
 }
 //---------------------------------------------------------------------------
-// ƒVƒiƒŠƒIƒtƒ‰ƒO‚Ì•ÏŠ·
+// ã‚·ãƒŠãƒªã‚ªãƒ•ãƒ©ã‚°ã®å¤‰æ›
 EWRAM_CODE u8 ScriptGetMapFlag(u8 no)
 {
 	switch(no)
 	{
-	case 0:			// ƒGƒ“ƒfƒBƒ“ƒOó‘Ô‹L˜^(”ñ‰Šú‰»‘ÎÛ)
+	case 0:			// ã‚¨ãƒ³ãƒ‡ã‚£ãƒ³ã‚°çŠ¶æ…‹è¨˜éŒ²(éåˆæœŸåŒ–å¯¾è±¡)
 		return 0;
 
-	case 1:			// Gƒtƒ‰ƒO
+	case 1:			// é›‘ãƒ•ãƒ©ã‚°
 		return 1;
 
-	case 0x40:		// —Ú—q‚Æ–ñ‘©
-	case 0x41:		// ‰ö‚µ‚¢l‰e
-	case 0x42:		// •”Šˆ“®‚Å•Ï‚í‚Á‚½‚±‚Æ
-	case 0x43:		// ‘ÌˆçŠÙ‚Åc
-	case 0x44:		// —Ú—q‰®ãu“Í‚©‚È‚©‚Á‚½v
-	case 0x45:		// —Ú—q TRUE  (”ñ‰Šú‰»‘ÎÛ)
-	case 0x46:		// —Ú—q HAPPY (”ñ‰Šú‰»‘ÎÛ)
-	case 0x47:		// ²Dƒ‹[ƒgON
-	case 0x48:		// ²D HƒV[ƒ“
-	case 0x49:		// ‚¨‚»‚ç‚­–¢g—p
-	case 0x4a:		// •äˆÚ“®êŠ§Œä—p
-	case 0x4b:		// ƒIƒ‹ƒS[ƒ‹‚º‚ñ‚Ü‚¢
+	case 0x40:		// ç‘ ç’ƒå­ã¨ç´„æŸ
+	case 0x41:		// æ€ªã—ã„äººå½±
+	case 0x42:		// éƒ¨æ´»å‹•ã§å¤‰ã‚ã£ãŸã“ã¨
+	case 0x43:		// ä½“è‚²é¤¨ã§â€¦
+	case 0x44:		// ç‘ ç’ƒå­å±‹ä¸Šã€Œå±Šã‹ãªã‹ã£ãŸã€
+	case 0x45:		// ç‘ ç’ƒå­ TRUE  (éåˆæœŸåŒ–å¯¾è±¡)
+	case 0x46:		// ç‘ ç’ƒå­ HAPPY (éåˆæœŸåŒ–å¯¾è±¡)
+	case 0x47:		// ä½ç¹”ãƒ«ãƒ¼ãƒˆON
+	case 0x48:		// ä½ç¹” Hã‚·ãƒ¼ãƒ³
+	case 0x49:		// ãŠãã‚‰ãæœªä½¿ç”¨
+	case 0x4a:		// ç‘ç©‚ç§»å‹•å ´æ‰€åˆ¶å¾¡ç”¨
+	case 0x4b:		// ã‚ªãƒ«ã‚´ãƒ¼ãƒ«ãœã‚“ã¾ã„
 		return (no - 0x40) + 2;
 	}
 
@@ -422,57 +422,57 @@ EWRAM_CODE u8 ScriptGetMapFlag(u8 no)
 	return 0;
 }
 //---------------------------------------------------------------------------
-// ”wŒi‰æ‘œ ƒpƒ‰ƒ[ƒ^•ÏŠ·
+// èƒŒæ™¯ç”»åƒ ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å¤‰æ›
 EWRAM_CODE u8 ScriptGetMapBg(u8 no)
 {
 	switch(no)
 	{
 	case 4:
-		return 2; // ‹³º(—[•û)
+		return 2; // æ•™å®¤(å¤•æ–¹)
 	case 5:
-		return 2; // ‹³º([–é)
+		return 2; // æ•™å®¤(æ·±å¤œ)
 	case 6:
-		return 3; // ‹x‚İŠÔ(—[•û)
+		return 3; // ä¼‘ã¿æ™‚é–“(å¤•æ–¹)
 	case 32:
-		return 31; // ‰®ã(—[•û)
+		return 31; // å±‹ä¸Š(å¤•æ–¹)
 	case 33:
-		return 31; // ‰®ã(–é)
+		return 31; // å±‹ä¸Š(å¤œ)
 	case 35:
-		return 34; // ‰®ã(–Ô)—[•û
+		return 34; // å±‹ä¸Š(ç¶²)å¤•æ–¹
 	case 36:
-		return 34; // ‰®ã(–Ô)–é
+		return 34; // å±‹ä¸Š(ç¶²)å¤œ
 	case 38:
-		return 11; // ‘ÌˆçŠÙ (—[•û)
+		return 11; // ä½“è‚²é¤¨ (å¤•æ–¹)
 	case 41:
-		return 15; // ’†’ë (—[•û)
+		return 15; // ä¸­åº­ (å¤•æ–¹)
 	case 42:
-		return 15; // ’†’ë (’‹)
+		return 15; // ä¸­åº­ (æ˜¼)
 	case 43:
-		return 10; // ‚ë‚¤‚©(—[•û)
+		return 10; // ã‚ã†ã‹(å¤•æ–¹)
 	case 44:
-		return 10; // ‚ë‚¤‚©([–é)
+		return 10; // ã‚ã†ã‹(æ·±å¤œ)
 	case 45:
-		return 30; // Eˆõº(—[•û)
+		return 30; // è·å“¡å®¤(å¤•æ–¹)
 	case 46:
-		return 30; // Eˆõº([–é)
+		return 30; // è·å“¡å®¤(æ·±å¤œ)
 	case 47:
-		return 22; // ŠK’i (—[•û)
+		return 22; // éšæ®µ (å¤•æ–¹)
 	case 48:
-		return 22; // ŠK’ii[–é)
+		return 22; // éšæ®µï¼ˆæ·±å¤œ)
 	case 49:
-		return 12; // ¶“k‰ï˜L‰º(—[•û)
+		return 12; // ç”Ÿå¾’ä¼šå»Šä¸‹(å¤•æ–¹)
 	case 50:
-		return 12; // ¶“k‰ï˜L‰º([–é)
+		return 12; // ç”Ÿå¾’ä¼šå»Šä¸‹(æ·±å¤œ)
 	case 51:
-		return 24; // ‘ÌˆçŠÙ‚Ì’†(—[•û)
+		return 24; // ä½“è‚²é¤¨ã®ä¸­(å¤•æ–¹)
 	case 52:
-		return 24; // ‘ÌˆçŠÙ‚Ì’†(–é)
+		return 24; // ä½“è‚²é¤¨ã®ä¸­(å¤œ)
 	case 53:
-		return 12; // •”Šˆ˜L‰º(^‚ÁˆÃ)
+		return 12; // éƒ¨æ´»å»Šä¸‹(çœŸã£æš—)
 	case 54:
-		return 18; // “S‚Ì‚Æ‚Ñ‚ç•Â(—[•û)
+		return 18; // é‰„ã®ã¨ã³ã‚‰é–‰(å¤•æ–¹)
 	case 55:
-		return 19; // “S‚Ì‚Æ‚Ñ‚çŠJ(—[•û)
+		return 19; // é‰„ã®ã¨ã³ã‚‰é–‹(å¤•æ–¹)
 	case 56:
 		return 16;
 	}
@@ -487,7 +487,7 @@ EWRAM_CODE u8 ScriptGetMapBg2(u8 c1, u8 c2)
 	return ScriptGetMapBg(no);
 }
 //---------------------------------------------------------------------------
-// ƒrƒWƒ…ƒAƒ‹—pƒpƒ‰ƒ[ƒ^•ÏŠ·
+// ãƒ“ã‚¸ãƒ¥ã‚¢ãƒ«ç”¨ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å¤‰æ›
 EWRAM_CODE u8 ScriptGetMapVisual(u8 no)
 {
 	switch(no)
@@ -508,7 +508,7 @@ EWRAM_CODE u8 ScriptGetMapVisual2(u8 c1, u8 c2)
 	return ScriptGetMapVisual(no);
 }
 //---------------------------------------------------------------------------
-// ƒGƒtƒFƒNƒgƒpƒ‰ƒ[ƒ^‚Ì•ÏŠ·
+// ã‚¨ãƒ•ã‚§ã‚¯ãƒˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å¤‰æ›
 EWRAM_CODE u8 ScriptGetMapEffect(u8 c1, u8 c2)
 {
 	u8 no  = ScriptGetMapDig(c1, c2);
@@ -522,7 +522,7 @@ EWRAM_CODE u8 ScriptGetMapEffect(u8 c1, u8 c2)
 	return ret;
 }
 //---------------------------------------------------------------------------
-// BGMƒpƒ‰ƒ[ƒ^‚Ì•ÏŠ·
+// BGMãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å¤‰æ›
 EWRAM_CODE u8 ScriptGetMapBgm(u8 no)
 {
 	if(no == 14)
@@ -574,7 +574,7 @@ EWRAM_CODE u8 ScriptGetMapTolower(u8 c)
 
 	if(c >= 'a' && c <= 'z')
 	{
-		// ‘å•¶š‚É•ÏŠ·
+		// å¤§æ–‡å­—ã«å¤‰æ›
 		ret = c - ('a' - 'A');
 	}
 	else
@@ -617,7 +617,7 @@ EWRAM_CODE bool ScriptCalcKey()
 	u16 cnt = KeyGetCnt();
 	u16 trg = KeyGetTrg();
 
-	//uŸ‚Ì‘I‘ğˆ‚Ü‚Åi‚Şvƒtƒ‰ƒO‚Ìƒ`ƒFƒbƒN‚ğ‚µ‚Ü‚·
+	//ã€Œæ¬¡ã®é¸æŠè‚¢ã¾ã§é€²ã‚€ã€ãƒ•ãƒ©ã‚°ã®ãƒã‚§ãƒƒã‚¯ã‚’ã—ã¾ã™
 	if(Script.isNext == TRUE)
 	{
 		if(cnt & KEY_B)

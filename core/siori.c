@@ -9,14 +9,14 @@
 #include "history.h"
 
 
-// SRAM“à•”\‘¢
+// SRAMå†…éƒ¨æ§‹é€ 
 
-// 0x00 - 	"SZ"i2ƒoƒCƒgj + ƒo[ƒWƒ‡ƒ“i2ƒoƒCƒgj + ‚µ‚¨‚èƒTƒCƒYi2ƒoƒCƒgj
-// 0x10 - 	‹¤’Êƒtƒ‰ƒOi4ƒoƒCƒgj
-// 0x20 - 	‚µ‚¨‚èiŒv9ŒÂj
+// 0x00 - 	"SZ"ï¼ˆ2ãƒã‚¤ãƒˆï¼‰ + ãƒãƒ¼ã‚¸ãƒ§ãƒ³ï¼ˆ2ãƒã‚¤ãƒˆï¼‰ + ã—ãŠã‚Šã‚µã‚¤ã‚ºï¼ˆ2ãƒã‚¤ãƒˆï¼‰
+// 0x10 - 	å…±é€šãƒ•ãƒ©ã‚°ï¼ˆ4ãƒã‚¤ãƒˆï¼‰
+// 0x20 - 	ã—ãŠã‚Šï¼ˆè¨ˆ9å€‹ï¼‰
 
 //---------------------------------------------------------------------------
-// —áŠOŽQÆ
+// ä¾‹å¤–å‚ç…§
 extern ST_SCRIPT Script;
 extern ST_BGM Bgm;
 extern ST_IMG Img;
@@ -33,12 +33,12 @@ EWRAM_CODE void SioriInit(void)
 
 	Siori.size = 2 + TEXT_SIORI_CX * 2 + sizeof(ST_SCRIPT) + sizeof(ST_BGM) + sizeof(ST_IMG);
 
-	TRACEOUT("[‚µ‚¨‚èƒTƒCƒY: 0x%x]\n", Siori.size);
+	TRACEOUT("[ã—ãŠã‚Šã‚µã‚¤ã‚º: 0x%x]\n", Siori.size);
 }
 //---------------------------------------------------------------------------
 EWRAM_CODE void SioriSaveSig(void)
 {
-	TRACEOUT("[ƒVƒOƒlƒ`ƒƒ‘‚«ž‚Ý]\n");
+	TRACEOUT("[ã‚·ã‚°ãƒãƒãƒ£æ›¸ãè¾¼ã¿]\n");
 
 	SramSeek(0);
 	SramWrite8('S');
@@ -49,7 +49,7 @@ EWRAM_CODE void SioriSaveSig(void)
 //---------------------------------------------------------------------------
 EWRAM_CODE void SioriSaveFlag(void)
 {
-	TRACEOUT("[ƒtƒ‰ƒO‘‚«ž‚Ý]\n");
+	TRACEOUT("[ãƒ•ãƒ©ã‚°æ›¸ãè¾¼ã¿]\n");
 
 	SramSeek(0x10);
 
@@ -68,12 +68,12 @@ EWRAM_CODE void SioriLoadFlag(void)
 		SioriSaveSig();
 		SioriSaveFlag();
 
-		TRACEOUT("[‰‰ñ‹N“®]\n");
+		TRACEOUT("[åˆå›žèµ·å‹•]\n");
 		return;
 	}
 
 
-	TRACEOUT("[ƒtƒ‰ƒO“Ç‚Ýž‚Ý]\n");
+	TRACEOUT("[ãƒ•ãƒ©ã‚°èª­ã¿è¾¼ã¿]\n");
 
 	SramSeek(0x10);
 
@@ -91,7 +91,7 @@ EWRAM_CODE void SioriSave(u16 no)
 	_ASSERT(no < SIORI_MAX_CNT);
 
 
-	TRACEOUT("[‚µ‚¨‚è@ƒZ[ƒu: %d]\n", no);
+	TRACEOUT("[ã—ãŠã‚Šã€€ã‚»ãƒ¼ãƒ–: %d]\n", no);
 
 	u16  i;
 	u8*  p;
@@ -132,7 +132,7 @@ EWRAM_CODE void SioriSave(u16 no)
 //---------------------------------------------------------------------------
 EWRAM_CODE bool SioriLoad(u16 no)
 {
-	TRACEOUT("[‚µ‚¨‚è@ƒ[ƒh: %d]\n", no);
+	TRACEOUT("[ã—ãŠã‚Šã€€ãƒ­ãƒ¼ãƒ‰: %d]\n", no);
 
 	if(SioriIsSram() == FALSE)
 	{
@@ -171,12 +171,12 @@ EWRAM_CODE bool SioriLoad(u16 no)
 	}
 
 
-	// •œ‹Aˆ—‚ð‚µ‚Ü‚·
+	// å¾©å¸°å‡¦ç†ã‚’ã—ã¾ã™
 
-	// ‹¤—L‚Ìƒtƒ‰ƒO
+	// å…±æœ‰ã®ãƒ•ãƒ©ã‚°
 	SioriLoadFlag();
 
-	// ƒXƒNƒŠƒvƒg
+	// ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
 	if(Script.act == SCRIPT_ACT_EVENT || Script.actTmp == SCRIPT_ACT_SELECT)
 	{
 		Script.act = SCRIPT_ACT_EVENT;
@@ -191,7 +191,7 @@ EWRAM_CODE bool SioriLoad(u16 no)
 	// BGM
 	BgmPlayRestart();
 
-	// ‰æ–Ê
+	// ç”»é¢
 	TextSetClearNoBuf();
 	ImgSetEffectClear(IMG_EFFECT_FADE_BLACK);
 	ImgSetEffectUpdate(IMG_EFFECT_FADE_BLACK);
@@ -219,7 +219,7 @@ EWRAM_CODE char* SioriGetName(u16 no)
 
 	if(*(p+0) != 'S' || *(p+1) != 'V')
 	{
-		return "|||||||||||";
+		return BLANK_SIORI_NAME;
 	}
 
 	return (char*)p + 2;

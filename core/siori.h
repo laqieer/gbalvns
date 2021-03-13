@@ -11,6 +11,7 @@ extern "C" {
 #define SIORI_MAX_CNT				(8+1)				// +1‚ÍA‘I‘ğˆ‚Ì‚P‚Â‘O‚É–ß‚é—p
 #define SIORI_MAX_MENU_CNT			(8)
 
+#define BLANK_SIORI_NAME "|||||||||||"
 
 //---------------------------------------------------------------------------
 

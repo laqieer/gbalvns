@@ -9,7 +9,7 @@
 
 
 // script2.c
-// u´vƒCƒxƒ“ƒgƒp[ƒT–{‘Ì
+// ã€Œé›«ã€ã‚¤ãƒ™ãƒ³ãƒˆãƒ‘ãƒ¼ã‚µæœ¬ä½“
 
 
 //---------------------------------------------------------------------------
@@ -72,7 +72,7 @@ EWRAM_CODE void ScriptExecEvent(void)
 			if(op == ScriptEventTable[i].op)
 			{
 				TRACEOUT("--------------------------------\n");
-				TRACEOUT("[ƒCƒxƒ“ƒg: 0x%02x]\n", (u32)op);
+				TRACEOUT("[ã‚¤ãƒ™ãƒ³ãƒˆ: 0x%02x]\n", (u32)op);
 
 				ScriptEventTable[i].pFunc();
 				break;
@@ -87,7 +87,7 @@ EWRAM_CODE void ScriptExecEvent(void)
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecEventEnd(void)
 {
-	TRACEOUT("[ƒuƒƒbƒNI—¹]\n");
+	TRACEOUT("[ãƒ–ãƒ­ãƒƒã‚¯çµ‚äº†]\n");
 
 	BgmStop();
 	HistoryInit();
@@ -100,7 +100,7 @@ EWRAM_CODE void ScriptExecEventEnd(void)
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecEventEffect(void)
 {
-	TRACEOUT("[“ÁêŒø‰Ê]\n");
+	TRACEOUT("[ç‰¹æ®ŠåŠ¹æœ]\n");
 
 	u8 sel   = *Script.pEventCur++;
 	u8 msgNo = *Script.pEventCur++;
@@ -108,14 +108,14 @@ EWRAM_CODE void ScriptExecEventEffect(void)
 	switch(sel)
 	{
 	case 0x01:
-		TRACEOUT("[‚®‚É‚á‚è¨ˆÃ]-[ƒƒbƒZ[ƒW: %d]\n", msgNo);
+		TRACEOUT("[ãã«ã‚ƒã‚Šâ†’æš—]-[ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸: %d]\n", msgNo);
 		ImgSetEffectClear(IMG_EFFECT_FADE_GUNYARI);
 		ScriptSetMsg(msgNo);
 		ImgSetEffectUpdate(IMG_EFFECT_FADE_BLACK);
 		break;
 
 	case 0x02:
-		TRACEOUT("[ˆÃ¨‚®‚É‚á‚è]-[ƒƒbƒZ[ƒW: %d]\n", msgNo);
+		TRACEOUT("[æš—â†’ãã«ã‚ƒã‚Š]-[ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸: %d]\n", msgNo);
 		ImgSetEffectClear(IMG_EFFECT_FADE_BLACK);
 		BgmPlayNext();
 		ScriptSetMsg(msgNo);
@@ -123,19 +123,19 @@ EWRAM_CODE void ScriptExecEventEffect(void)
 		break;
 
 	case 0x03:
-		TRACEOUT("[—Ü‚Ì´: %02x]\n", msgNo);
+		TRACEOUT("[æ¶™ã®é›«: %02x]\n", msgNo);
 		AnimeSetType(ANIME_TYPE_NAMIDA, FALSE);
 		ScriptSetAct(SCRIPT_ACT_ANIME);
 		break;
 
 	case 0x04:
-		TRACEOUT("[‚®‚É‚á‚è2(ˆÙŸŒ³)]-[ƒƒbƒZ[ƒW:%d]\n", msgNo);
+		TRACEOUT("[ãã«ã‚ƒã‚Š2(ç•°æ¬¡å…ƒ)]-[ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸:%d]\n", msgNo);
 		ImgSetEffectClear(IMG_EFFECT_FADE_GUNYARI2);
 		ScriptSetMsg(msgNo);
 		break;
 
 	default:
-		TRACEOUT("ˆÙí‚È0x01ƒRƒ}ƒ“ƒh‚Å‚·(%02x,%02x)\n", msgNo);
+		TRACEOUT("ç•°å¸¸ãª0x01ã‚³ãƒãƒ³ãƒ‰ã§ã™(%02x,%02x)\n", msgNo);
 		break;
 	}
 
@@ -144,7 +144,7 @@ EWRAM_CODE void ScriptExecEventEffect(void)
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecEventSkip1(void)
 {
-	TRACEOUT("[“ä1]\n");
+	TRACEOUT("[è¬1]\n");
 }
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecEventJump(void)
@@ -152,7 +152,7 @@ EWRAM_CODE void ScriptExecEventJump(void)
 	u8 scnNo   = *Script.pEventCur++;
 	u8 eventNo = *Script.pEventCur++;
 
-	TRACEOUT("[ƒWƒƒƒ“ƒv: SCN%03d.dat Block %d]\n", scnNo, eventNo);
+	TRACEOUT("[ã‚¸ãƒ£ãƒ³ãƒ—: SCN%03d.dat Block %d]\n", scnNo, eventNo);
 
 	ScriptSetScn(scnNo);
 	ScriptSetEvent(eventNo);
@@ -160,7 +160,7 @@ EWRAM_CODE void ScriptExecEventJump(void)
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecEventSelect(void)
 {
-	TRACEOUT("[‘I‘ğˆ]\n");
+	TRACEOUT("[é¸æŠè‚¢]\n");
 
 	ScriptSetAct(SCRIPT_ACT_SELECT);
 	Script.isNext = FALSE;
@@ -169,7 +169,7 @@ EWRAM_CODE void ScriptExecEventSelect(void)
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecEventSetPrev(void)
 {
-	TRACEOUT("[‘O‚Ì‘I‘ğˆ‚É–ß‚éƒ}[ƒNˆÊ’u]\n");
+	TRACEOUT("[å‰ã®é¸æŠè‚¢ã«æˆ»ã‚‹ãƒãƒ¼ã‚¯ä½ç½®]\n");
 
 	SioriSavePrev();
 }
@@ -178,7 +178,7 @@ EWRAM_CODE void ScriptExecEventSetBg(void)
 {
 	u8 bgNo = ScriptGetMapBg(*Script.pEventCur++);
 
-	TRACEOUT("[”wŒi‚Ì‚İƒ[ƒh: MAX_S%02d.img]\n", bgNo);
+	TRACEOUT("[èƒŒæ™¯ã®ã¿ãƒ­ãƒ¼ãƒ‰: MAX_S%02d.img]\n", bgNo);
 	ImgSetBg2(bgNo);
 
 	Script.isLoop = FALSE;
@@ -188,7 +188,7 @@ EWRAM_CODE void ScriptExecEventSetBgCls(void)
 {
 	u8 no = *Script.pEventCur++;
 
-	TRACEOUT("[‰æ–ÊƒNƒŠƒA? %02d]\n", no);
+	TRACEOUT("[ç”»é¢ã‚¯ãƒªã‚¢? %02d]\n", no);
 
 	ImgSetEffectClear(no);
 	Script.isLoop = FALSE;
@@ -198,7 +198,7 @@ EWRAM_CODE void ScriptExecEventSetBgH(void)
 {
 	u8 hNo = *Script.pEventCur++;
 
-	TRACEOUT("[HƒV[ƒ“ƒ[ƒh: MAX_H%02d.img]\n", hNo);
+	TRACEOUT("[Hã‚·ãƒ¼ãƒ³ãƒ­ãƒ¼ãƒ‰: MAX_H%02d.img]\n", hNo);
 
 	ImgSetBgH(hNo);
 	ImgSetEffectUpdate(IMG_EFFECT_NORMAL);
@@ -212,7 +212,7 @@ EWRAM_CODE void ScriptExecEventSetChr(void)
 	u8 chrNo = *Script.pEventCur++;
 	u8 pos   = ScriptGetMapChrPos(*Script.pEventCur++);
 
-	TRACEOUT("[ƒLƒƒƒ‰ƒNƒ^ƒ[ƒh: MAX_C%02X.img %02x]\n", chrNo, pos);
+	TRACEOUT("[ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ­ãƒ¼ãƒ‰: MAX_C%02X.img %02x]\n", chrNo, pos);
 
 	ImgSetChr2(chrNo, pos);
 	ImgSetEffectUpdate(IMG_EFFECT_FADE_MASK);
@@ -225,10 +225,10 @@ EWRAM_CODE void ScriptExecEventSetChr2(void)
 {
 	u8 chrNo = *Script.pEventCur++;
 
-	// 1Byte•ª ”jŠü‚µ‚Ü‚·
+	// 1Byteåˆ† ç ´æ£„ã—ã¾ã™
 	Script.pEventCur++;
 
-	TRACEOUT("[ƒLƒƒƒ‰ƒNƒ^ƒ[ƒh2?(center?): MAX_C%02X.img]\n", chrNo);
+	TRACEOUT("[ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ­ãƒ¼ãƒ‰2?(center?): MAX_C%02X.img]\n", chrNo);
 
 	ImgSetChr2(chrNo, IMG_CHR_TYPE_MID);
 	ImgSetEffectUpdate(IMG_EFFECT_FADE_MASK);
@@ -239,14 +239,14 @@ EWRAM_CODE void ScriptExecEventSetChr2(void)
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecEventSetMark2(void)
 {
-	TRACEOUT("[‘I‘ğˆ‚Ì‘O‚É‘¶İ‚·‚éƒf[ƒ^]\n");
+	TRACEOUT("[é¸æŠè‚¢ã®å‰ã«å­˜åœ¨ã™ã‚‹ãƒ‡ãƒ¼ã‚¿]\n");
 }
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecEventSetEffect2(void)
 {
 	u8 effectNo = ScriptGetMapEffect(0, *Script.pEventCur++);
 
-	TRACEOUT("[•\\¦ˆ—: %02x]\n", effectNo);
+	TRACEOUT("[è¡¨ç¤ºå‡¦ç†: %02x]\n", effectNo);
 	ImgSetEffectUpdate(effectNo);
 	BgmPlayNext();
 
@@ -260,7 +260,7 @@ EWRAM_CODE void ScriptExecEventIf(void)
 	u8 dst    = *Script.pEventCur++;
 	u8 offset = *Script.pEventCur++;
 
-	TRACEOUT("[if•¶ no:%02x val:%02x == 0x%02x pc += %02x]\n", no, src, dst, offset);
+	TRACEOUT("[ifæ–‡ no:%02x val:%02x == 0x%02x pc += %02x]\n", no, src, dst, offset);
 
 	if(src == dst)
 	{
@@ -275,7 +275,7 @@ EWRAM_CODE void ScriptExecEventIf2(void)
 	u8 dst    = *Script.pEventCur++;
 	u8 offset = *Script.pEventCur++;
 
-	TRACEOUT("[if•¶(”Û’è) no:%02x val:%02x == 0x%02x pc += %02x]\n", no, src, dst, offset);
+	TRACEOUT("[ifæ–‡(å¦å®š) no:%02x val:%02x == 0x%02x pc += %02x]\n", no, src, dst, offset);
 
 	if(src != dst)
 	{
@@ -288,7 +288,7 @@ EWRAM_CODE void ScriptExecEventSetFlag(void)
 	u8 flagNo = ScriptGetMapFlag(*Script.pEventCur++);
 	u8 val    = *Script.pEventCur++;
 
-	TRACEOUT("[ƒtƒ‰ƒO‚Ì’lİ’è: %02x = 0x%02x]\n", flagNo, val);
+	TRACEOUT("[ãƒ•ãƒ©ã‚°ã®å€¤è¨­å®š: %02x = 0x%02x]\n", flagNo, val);
 
 	ScriptSetFlag(flagNo, val);
 }
@@ -298,7 +298,7 @@ EWRAM_CODE void ScriptExecEventAddFlag(void)
 	u8 flagNo = ScriptGetMapFlag(*Script.pEventCur++);
 	u8 add    = *Script.pEventCur++;
 
-	TRACEOUT("[ƒtƒ‰ƒO‰ÁZ: %02x += 0x%02x\n", flagNo, add);
+	TRACEOUT("[ãƒ•ãƒ©ã‚°åŠ ç®—: %02x += 0x%02x\n", flagNo, add);
 
 	ScriptAddFlag(flagNo, add);
 }
@@ -307,7 +307,7 @@ EWRAM_CODE void ScriptExecEventMsg(void)
 {
 	u8 msgNo = *Script.pEventCur++;
 
-	TRACEOUT("[ƒƒbƒZ[ƒW: %d]\n", msgNo);
+	TRACEOUT("[ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸: %d]\n", msgNo);
 
 	ScriptSetMsg(msgNo);
 	Script.isLoop = FALSE;
@@ -317,35 +317,35 @@ EWRAM_CODE void ScriptExecEventSkip2(void)
 {
 	Script.pEventCur++;
 
-	TRACEOUT("[“ä2]\n");
+	TRACEOUT("[è¬2]\n");
 }
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecEventSkip3(void)
 {
 	Script.pEventCur += 2;
 
-	TRACEOUT("[“ä3]\n");
+	TRACEOUT("[è¬3]\n");
 }
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecEventSetBgm(void)
 {
 	u8 bgmNo = ScriptGetMapBgm(*Script.pEventCur++);
 
-	TRACEOUT("[BGMÄ¶: %02x]\n", bgmNo);
+	TRACEOUT("[BGMå†ç”Ÿ: %02x]\n", bgmNo);
 
 	BgmPlay(bgmNo, TRUE);
 }
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecEventEnding(void)
 {
-	TRACEOUT("[ƒGƒ“ƒfƒBƒ“ƒOŠÖŒW “ä]\n");
+	TRACEOUT("[ã‚¨ãƒ³ãƒ‡ã‚£ãƒ³ã‚°é–¢ä¿‚ è¬]\n");
 }
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecEventEnding2(void)
 {
 	u8 bgmNo = ScriptGetMapBgm(*Script.pEventCur++);
 
-	TRACEOUT("[ƒGƒ“ƒfƒBƒ“ƒOBGMİ’è & ‹N“®:%02x %d]\n", bgmNo);
+	TRACEOUT("[ã‚¨ãƒ³ãƒ‡ã‚£ãƒ³ã‚°BGMè¨­å®š & èµ·å‹•:%02x %d]\n", bgmNo);
 
 	SioriSavePrev();
 
@@ -359,27 +359,27 @@ EWRAM_CODE void ScriptExecEventEnding2(void)
 //---------------------------------------------------------------------------
 EWRAM_CODE void ScriptExecEventEnding3(void)
 {
-	// 1Byte•ª ”jŠü‚µ‚Ü‚·
+	// 1Byteåˆ† ç ´æ£„ã—ã¾ã™
 	Script.pEventCur++;
 
-	TRACEOUT("[ƒGƒ“ƒfƒBƒ“ƒO”Ô†İ’è]\n");
+	TRACEOUT("[ã‚¨ãƒ³ãƒ‡ã‚£ãƒ³ã‚°ç•ªå·è¨­å®š]\n");
 	/*
-	 0 12 ‘²‹Æ®
-	 1 12 •ä BAD
-	 2 12 ”j‰ó
-	 3 12 ƒg[ƒXƒ^[
-	 4 11 ²D HAPPY
-	 5 12 ²D BAD
-	 6 11 •ä HAPPY
-	 7 12 •ä BAD
-	 8 10 —Ú—q True
-	 9 11 —Ú—q HAPPY
-	 a 01 ‘å“c‚³‚ñ
-	 b 14 ˆÙŸŒ³
-	 c 12 ˆÙŸŒ³ BAD
+	 0 12 å’æ¥­å¼
+	 1 12 ç‘ç©‚ BAD
+	 2 12 ç ´å£Š
+	 3 12 ãƒˆãƒ¼ã‚¹ã‚¿ãƒ¼
+	 4 11 ä½ç¹” HAPPY
+	 5 12 ä½ç¹” BAD
+	 6 11 ç‘ç©‚ HAPPY
+	 7 12 ç‘ç©‚ BAD
+	 8 10 ç‘ ç’ƒå­ True
+	 9 11 ç‘ ç’ƒå­ HAPPY
+	 a 01 å¤§ç”°ã•ã‚“
+	 b 14 ç•°æ¬¡å…ƒ
+	 c 12 ç•°æ¬¡å…ƒ BAD
 	*/
 
-	// —Ú—q True ‚ğŒ©‚Ä‚¢‚é‚©ƒ`ƒFƒbƒN‚ğ‚µ‚Ü‚·
+	// ç‘ ç’ƒå­ True ã‚’è¦‹ã¦ã„ã‚‹ã‹ãƒã‚§ãƒƒã‚¯ã‚’ã—ã¾ã™
 	if(ScriptGetFlag(0x08) == 1)
 	{
 		ScriptSetFlag(0, 3);
