@@ -1,4 +1,5 @@
 #include "common.h"
+#include "mgba.h"
 
 
 //---------------------------------------------------------------------------
@@ -187,6 +188,7 @@ IWRAM_CODE void _Printf(char* format, ...)
 	va_end(ap);
 
 	mappylog(sprintfBuf);
+	mgbalog(sprintfBuf, LOG_INFO);
 }
 //---------------------------------------------------------------------------
 IWRAM_CODE char* _Sprintf(char* buf, char* format, ...)
@@ -347,6 +349,7 @@ IWRAM_CODE void SystemError(char* format, ...)
 	va_end(ap);
 
 	mappylog(buf);
+	mgbalog(buf, LOG_ERR);
 
 	for(;;)
 	{
