@@ -266,7 +266,7 @@ EWRAM_CODE void ImgExecBg(void)
 		Mode3DrawFull(Img.bg.pDat);
 
 		ImgSetBg("TITLE.img");					// é¥ÅiåàÇﬂë≈ÇøÅj
-		Mode3DrawImg(84, 13, Img.bg.cx, Img.bg.cy, Img.bg.pDat);
+		Mode3DrawImg(26, 64, Img.bg.cx, Img.bg.cy, Img.bg.pDat);
 		break;
 
 	case IMG_BG_TYPE_BACK:

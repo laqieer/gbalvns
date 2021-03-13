@@ -63,12 +63,16 @@ EWRAM_CODE void ScriptExecMsg(void)
 			if(op == ScriptMsgTable[i].op)
 			{
 				TRACEOUT("--------------------------------\n");
-				TRACEOUT("[メッセージ: %0x02x]\n", (u32)op);
+				TRACEOUT("[メッセージ: 0x%02x]\n", (u32)op);
 
 				ScriptMsgTable[i].pFunc();
 				break;
 			}
 		}
+        if(i >= SCRIPT_MAX_MSG_CNT)
+        {
+            TRACEOUT("Invalid op: 0x%02x\n", op);
+        }
 		_ASSERT(i < SCRIPT_MAX_MSG_CNT);
 
 

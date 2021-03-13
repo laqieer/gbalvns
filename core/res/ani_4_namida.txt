@@ -4,23 +4,23 @@
 # ---------------------------------------------------------------------------
 # —Ü‚Ì´@‚P‰ñ–Ú
 # OP_S00`16.img ‚ğ•\¦‚µ‚Ü‚·
-blackin 5
-
-setval 0
-setstr "OP_S%02d.img"
-setpos
-
-image3
-update
-wait 2
-
-inc
-jb 16
-
-image "MAX_S37.img"
-wait 20
-update
-
-# Œãˆ—
-blackin 5
+#blackin 5
+#
+#setval 0
+#setstr "OP_S%02d.img"
+#setpos
+#
+#image3
+#update
+#wait 2
+#
+#inc
+#jb 16
+#
+#image "MAX_S37.img"
+#wait 20
+#update
+#
+## Œãˆ—
+#blackin 5
 end

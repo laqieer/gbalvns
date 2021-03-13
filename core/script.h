@@ -11,7 +11,7 @@ extern "C" {
 #define SCRIPT_MAX_SYS_FLAG_CNT				14
 #define SCRIPT_MAX_SCN_CNT					197
 #define SCRIPT_MAX_SELECT_CNT				10
-#define SCRIPT_SCN_STR						"SCN%03d.DAT"
+#define SCRIPT_SCN_STR						"SCN%03d.dat"
 
 
 enum {

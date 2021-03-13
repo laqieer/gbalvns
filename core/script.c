@@ -425,58 +425,6 @@ EWRAM_CODE u8 ScriptGetMapFlag(u8 no)
 // 背景画像 パラメータ変換
 EWRAM_CODE u8 ScriptGetMapBg(u8 no)
 {
-	switch(no)
-	{
-	case 4:
-		return 2; // 教室(夕方)
-	case 5:
-		return 2; // 教室(深夜)
-	case 6:
-		return 3; // 休み時間(夕方)
-	case 32:
-		return 31; // 屋上(夕方)
-	case 33:
-		return 31; // 屋上(夜)
-	case 35:
-		return 34; // 屋上(網)夕方
-	case 36:
-		return 34; // 屋上(網)夜
-	case 38:
-		return 11; // 体育館 (夕方)
-	case 41:
-		return 15; // 中庭 (夕方)
-	case 42:
-		return 15; // 中庭 (昼)
-	case 43:
-		return 10; // ろうか(夕方)
-	case 44:
-		return 10; // ろうか(深夜)
-	case 45:
-		return 30; // 職員室(夕方)
-	case 46:
-		return 30; // 職員室(深夜)
-	case 47:
-		return 22; // 階段 (夕方)
-	case 48:
-		return 22; // 階段（深夜)
-	case 49:
-		return 12; // 生徒会廊下(夕方)
-	case 50:
-		return 12; // 生徒会廊下(深夜)
-	case 51:
-		return 24; // 体育館の中(夕方)
-	case 52:
-		return 24; // 体育館の中(夜)
-	case 53:
-		return 12; // 部活廊下(真っ暗)
-	case 54:
-		return 18; // 鉄のとびら閉(夕方)
-	case 55:
-		return 19; // 鉄のとびら開(夕方)
-	case 56:
-		return 16;
-	}
-
 	return no;
 }
 //---------------------------------------------------------------------------
@@ -525,16 +473,7 @@ EWRAM_CODE u8 ScriptGetMapEffect(u8 c1, u8 c2)
 // BGMパラメータの変換
 EWRAM_CODE u8 ScriptGetMapBgm(u8 no)
 {
-	if(no == 14)
-	{
-		return 2;
-	}
-	else if(no < 16)
-	{
-		return no + 2;
-	}
-
-	return no + 1;
+	return no;
 }
 //---------------------------------------------------------------------------
 EWRAM_CODE u8 ScriptGetMapChrPos(u8 pos)

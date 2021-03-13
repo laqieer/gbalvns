@@ -50,3 +50,12 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+.DS_Store
+tags
+
+*.elf
+*.gba
+*.gbfs
+*.nm
+*.sav
