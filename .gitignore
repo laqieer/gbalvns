@@ -62,3 +62,8 @@ tags
 
 core/res/*.h
 core/res/*.s
+wav28ad
+!SCN000.dat
+*.dat
+*.img
+*.8ad

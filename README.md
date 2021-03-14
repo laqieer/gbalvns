@@ -31,14 +31,12 @@ Create your own games on GBA without coding! No programming skills are required!
 
 ## Prerequisite
 
-[devkitPro](https://devkitpro.org/)
+- Install [devkitPro](https://devkitpro.org/)
+- Build [wav28ad](https://github.com/laqieer/wav28ad) and `cp /path/to/your/built/wav28ad tool/`
 
 ## Build
 
-1. Build `tool`: Build [wav28ad](https://github.com/laqieer/wav28ad) and copy it to `tool`
-1. Build `core`: `cd core && make`
-1. Build `asset`: `cd asset && gbfs asset.gbfs script/*.dat image/*.img sound/*.8ad`
-1. Link `core` & `asset`: `cat core/core.gba asset/asset.gbfs > summer.gba`
+`make`
 
 ## Doc
 
