@@ -59,3 +59,6 @@ tags
 *.gbfs
 *.nm
 *.sav
+
+core/res/*.h
+core/res/*.s
