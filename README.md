@@ -26,8 +26,8 @@ Create your own games on GBA without coding! No programming skills are required!
 - Story branching
 - Save & load at any point
 - Skip to the next branch point & return to the previous branch point freely
+- Environment configuration
 - Logging
-- More environment configuration
 
 ## Prerequisite
 
@@ -37,7 +37,7 @@ Create your own games on GBA without coding! No programming skills are required!
 
 1. Build `tool`: Build [wav28ad](https://github.com/laqieer/wav28ad) and copy it to `tool`
 1. Build `core`: `cd core && make`
-1. Build `asset`: `gbfs asset.gbfs script/*.dat image/*.img sound/*.8ad`
+1. Build `asset`: `cd asset && gbfs asset.gbfs script/*.dat image/*.img sound/*.8ad`
 1. Link `core` & `asset`: `cat core/core.gba asset/asset.gbfs > summer.gba`
 
 ## Doc
