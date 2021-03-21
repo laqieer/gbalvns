@@ -394,6 +394,7 @@ IWRAM_CODE void ScriptExecMsgText(void)
 {
 	u16 buf[512] ALIGN(4);
 	u16 cnt = 0;
+    u16 sjis=0;
 
 	do
 	{
@@ -403,7 +404,9 @@ IWRAM_CODE void ScriptExecMsgText(void)
 			continue;
 		}
 
-		buf[cnt++] = ((*Script.pMsgCur & 0x7f) << 8) | (*(Script.pMsgCur + 1));
+        sjis = (*Script.pMsgCur & 0xff) | (*(Script.pMsgCur + 1) << 8);
+        buf[cnt++] = TextGetLeafCode(sjis);
+        TRACEOUT("sjis code: %x, leaf code: %x", sjis, buf[cnt-1]);
 		Script.pMsgCur += 2;
 
 	} while((*Script.pMsgCur & 0x80) || (*Script.pMsgCur == 'r'));

@@ -1,4 +1,3 @@
-	#include "leafCode.h"
 	.include "EVTDef.s"
 	
 	.align 4
@@ -30,7 +29,7 @@ MSG001:
 	.hword 1
 	.hword MSG001_1 - MSG001, MSG001_2 - MSG001
 MSG001_1:
-	.byte LeafCodeSpace 誰 で も ビ ジ ュ ア ル ノ ベ ル を 楽 に 作 れ る こ と を 目 指 す も の で す LeafCodePeriod 'k','r', LeafCodeSpace Ｇ Ｂ Ａ Ｄ Ｅ Ｖ Ｅ Ｌ Ｏ Ｐ Ｗ Ｉ Ｋ Ｉ の 先 人 に 感 謝 を LeafCodePeriod 'p','C','c','0','1','$'
+	.ascii "�@�N�ł��r�W���A���m�x�����y�ɍ��邱�Ƃ�ڎw�����̂ł��Bkr�@�f�a�`�c�d�u�d�k�n�o�v�h�j�h�̐�l�Ɋ��ӂ��BpCc01$"
 MSG001_2:
-	.byte LeafCodeDoubleQuoteLeft 一 緒 に ゲ ー ム を 作 り ま し ょ う か LeafCodeDoubleQuoteRight 'p','C','c','0','2','$'
+	.ascii "�w�ꏏ�ɃQ�[�������܂��傤���xpCc02$"
 	
