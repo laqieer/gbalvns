@@ -9,7 +9,13 @@ VN/AVG/ADV/Gal game engine based on [sizuku_gba2](http://akkera102.sakura.ne.jp/
 
 ### Screenshot
 
-![](https://media.discordapp.net/attachments/682141375587680274/820353613573652481/summer-2.png)![](https://media.discordapp.net/attachments/682141375587680274/820353609774530580/summer-0.png)![](https://media.discordapp.net/attachments/682141375587680274/820353612844498994/summer-1.png)![](https://media.discordapp.net/attachments/682141375587680274/820353615485992960/summer-3.png)![](https://media.discordapp.net/attachments/682141375587680274/820558326080339988/summer-1.png)![](https://media.discordapp.net/attachments/682141375587680274/820558322981404692/summer-0.png)
+![summer-0](https://user-images.githubusercontent.com/8841957/185962493-bed92953-1d01-4a38-9be2-50333a5123ab.png)
+![summer-1](https://user-images.githubusercontent.com/8841957/185962498-8d2f0b4f-6571-4fc3-9dcc-15ec573b4934.png)
+![summer-2](https://user-images.githubusercontent.com/8841957/185962500-e2cd89bd-8dd3-4eef-82dc-c3b00a7e701f.png)
+
+![summer-3](https://user-images.githubusercontent.com/8841957/185962501-b465de1c-11c8-418e-91a5-37847e6193dd.png)
+![summer-4](https://user-images.githubusercontent.com/8841957/185962503-53b15280-12da-46c6-9dd2-4f0cfef7b1b3.png)
+![summer-5](https://user-images.githubusercontent.com/8841957/185962509-4350b9be-4f07-4d39-ae42-454ceff77712.png)
 
 ### Credit
 
