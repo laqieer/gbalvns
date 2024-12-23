@@ -41,6 +41,7 @@ Create your own games on GBA without coding! No programming skills are required!
 ## Prerequisite
 
 - Install gcc to build `tool/wav28ad`
+- Install [Pillow](https://pillow.readthedocs.io/)
 - Install [devkitPro](https://devkitpro.org/)
 
 ## Build
