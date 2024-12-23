@@ -1,4 +1,7 @@
 # gbalvns
+
+[![Build CI](https://github.com/laqieer/gbalvns/actions/workflows/build.yml/badge.svg)](https://github.com/laqieer/gbalvns/actions/workflows/build.yml)
+
 Leaf Visual Novel System for GBA
 
 VN/AVG/ADV/Gal game engine based on [sizuku_gba2](http://akkera102.sakura.ne.jp/gbadev/index.php?NO.100%20sizuku_gba2).
