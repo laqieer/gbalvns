@@ -13,7 +13,7 @@ def main(argv):
         f.close()
         f = open(file[:-4] + ".img", 'wb')
         f.write(struct.pack('HH', iw, ih))
-        f.write(x);
+        f.write(x)
         f.close()
 
 
