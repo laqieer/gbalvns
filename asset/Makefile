@@ -17,5 +17,4 @@ GBFS = asset.gbfs
 $(GBFS): script image sound
 	@echo \# packing $@
 	@rm -f $@
-	@gbfs $@ script/*.dat image/*.img sound/*.8ad
-
+	@$(DEVKITPRO)/tools/bin/gbfs $@ script/*.dat image/*.img sound/*.8ad

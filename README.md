@@ -37,8 +37,8 @@ Create your own games on GBA without coding! No programming skills are required!
 
 ## Prerequisite
 
+- Install gcc to build `tool/wav28ad`
 - Install [devkitPro](https://devkitpro.org/)
-- Build [wav28ad](https://github.com/laqieer/wav28ad) and `cp /path/to/your/built/wav28ad tool/`
 
 ## Build
 
@@ -59,4 +59,3 @@ Messages, events and animations are written in Script Markup Language.
 `core/res/`
 
 `core/anime.c`
-

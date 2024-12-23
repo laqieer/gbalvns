@@ -4,7 +4,7 @@ WAVS = $(wildcard *.wav)
 
 %.8ad: %.wav
 	@echo \# converting $<
-	@../../tool/wav28ad $< $@
+	@../../tool/wav28ad/wav28ad/wav28ad $< $@
 	@rm -f decomp.wav
 
 .PHONY: all clean

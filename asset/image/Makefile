@@ -4,7 +4,7 @@ IMGS = $(addsuffix .img, $(basename $(notdir $(IMAGES))))
 
 %.img: %.png
 	@echo \# converting $<
-	@grit $< -gb -gB16 -ftb -gu16 -gz! -fh!
+	@$(DEVKITPRO)/tools/bin/grit $< -gb -gB16 -ftb -gu16 -gz! -fh!
 	@mv $@.bin $@
 	@../../tool/imgfix.py $<
 

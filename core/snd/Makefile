@@ -3,7 +3,7 @@ WAVFILES	= $(wildcard *.wav)
 SFILES	= \
 	$(WAVFILES:.wav=.s)
 
-CFILES	= 
+CFILES	=
 
 #=============================================================================
 all: $(SFILES) $(CFILES) ;
@@ -16,6 +16,6 @@ clean:
 .wav.s: $(WAVFILES)
 	@echo \# converting $<
 	@sox $< -r 16384 -c 1 -B -s $*.raw
-	@padbin 4 $*.raw
-	@bin2s $*.raw > $@
+	@$(DEVKITPRO)/tools/bin/padbin 4 $*.raw
+	@$(DEVKITPRO)/tools/bin/bin2s $*.raw > $@
 	@rm $*.raw

@@ -10,7 +10,7 @@ SFILES	= \
 	$(BMPFILES:.bmp=.s) \
 	$(PNGFILES:.png=.s)
 
-CFILES	= 
+CFILES	=
 
 #=============================================================================
 all: $(SFILES) $(CFILES) ;
@@ -22,16 +22,16 @@ clean:
 
 .bin.s: $(BINFILES)
 	@echo \# converting $<
-	@bin2s $< > $@
+	@$(DEVKITPRO)/tools/bin/bin2s $< > $@
 
 .txt.s: $(TXTFILES)
 	@echo \# converting $<
-	@bin2s $< > $@
+	@$(DEVKITPRO)/tools/bin/bin2s $< > $@
 
 .bmp.s: $(BMPFILES)
 	@echo \# converting $<
-	@grit $< -ff$*.grit
+	@$(DEVKITPRO)/tools/bin/grit $< -ff$*.grit
 
 .png.s: $(PNGFILES)
 	@echo \# converting $<
-	@grit $< -ff$*.grit
+	@$(DEVKITPRO)/tools/bin/grit $< -ff$*.grit

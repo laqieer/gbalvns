@@ -1,4 +1,4 @@
-PREFIX  = arm-none-eabi-
+PREFIX  = $(DEVKITARM)/bin/arm-none-eabi-
 
 CC = $(PREFIX)gcc
 OBJCOPY = $(PREFIX)objcopy

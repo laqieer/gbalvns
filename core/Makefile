@@ -3,7 +3,7 @@ MAKEFLAGS	+=--no-print-directory
 SHELL	= sh
 NAME	= core
 GAMECODE= LVNS
-PREFIX	= arm-none-eabi-
+PREFIX	= $(DEVKITARM)/bin/arm-none-eabi-
 
 AS		= $(PREFIX)as
 CC 		= $(PREFIX)gcc
@@ -15,7 +15,7 @@ NM		= $(PREFIX)nm
 
 INCDIR	= .
 
-AFILES	= 
+AFILES	=
 
 SFILES	= \
 	$(wildcard res/*.s) \
@@ -35,7 +35,7 @@ VPATH =  $(dir $(CFILES) $(SFILES) $(AFILES))
 
 #=============================================================================
 
-ASFLAGS	= -mthumb-interwork --fatal-warnings
+ASFLAGS	= -mthumb-interwork
 CFLAGS	= -mthumb-interwork -fverbose-asm -fpeephole -mtune=arm7tdmi -mcpu=arm7tdmi $(foreach incdir,$(INCDIR),-I$(incdir) ) -Wall -W -Wshadow -Wno-unused-parameter -Wno-strict-aliasing
 
 OBJDIR  = obj
@@ -52,10 +52,16 @@ TARGET_BIN	= $(NAME).gba
 
 LDFLAGS		= -Map $(MAPFILE) -Wall -lstdc++ -mthumb-interwork -specs=gba.specs
 
+ifeq ($(shell uname),Darwin)
+  STAT_FLAGS = -f "%Dz"
+else
+  STAT_FLAGS = -c "%s"
+endif
+
 #=============================================================================
 
 .PHONY: all clean
-all: 
+all:
 	@make -C res
 	@make -C snd
 	@make $(TARGET_BIN) ;
@@ -65,12 +71,11 @@ clean:
 	@make clean -C snd
 	rm -f $(OFILES) $(DFILES) $(MAPFILE) $(NMFILE) $(TARGET_ELF) $(TARGET_BIN)
 
-
 $(TARGET_BIN): $(TARGET_ELF)
 	@$(PREFIX)objcopy -v -O binary $< $@
-	@gbafix $@ -t$(NAME) -c$(GAMECODE)
+	@$(DEVKITPRO)/tools/bin/gbafix $@ -t$(NAME) -c$(GAMECODE)
 	@echo \# padding $@
-	@dd if=/dev/zero bs=1 count=$$(expr 256 - $$(stat -f "%Dz" $@) % 256) >> $@
+	@dd if=/dev/zero bs=1 count=$$(expr 256 - $$(stat $(STAT_FLAGS) $@) % 256) >> $@
 
 $(TARGET_ELF): $(OBJDIR) $(OFILES) $(AFILES) Makefile
 	@echo \# Linking $@

@@ -1,0 +1,3 @@
+[submodule "tool/wav28ad"]
+	path = tool/wav28ad
+	url = https://github.com/laqieer/wav28ad.git
