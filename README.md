@@ -56,7 +56,7 @@ Messages, events and animations are written in Script Markup Language.
 
 `asset/script/`
 
-[sizuku_gba2's doc](http://akkera102.sakura.ne.jp/gbadev/index.php?Doc.15%20PC%A5%B2%A1%BC%A5%E0%A1%D6%BC%B6%A1%D7%A4%CE%B0%DC%BF%A2%CA%FD%CB%A1%281%29)
+[sizuku_gba2's doc](https://akkera102.sakura.ne.jp/gbadev/?Ex.21)
 
 ### Animation
 
